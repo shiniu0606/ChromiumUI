@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "ChromiumUI",
+	"Description": "",
+	"Category": "Other",
+	"CreatedBy": "luchao0137@gmail.com",
+	"CreatedByURL": "https://github.com/shiniu0606/ChromiumUI",
+	"DocsURL": "https://github.com/shiniu0606/ChromiumUI",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "ChromiumUI",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}

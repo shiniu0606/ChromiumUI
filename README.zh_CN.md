@@ -9,4 +9,4 @@ ue4.27 提供的cef3 版本过低，无法支持es6语法的html网页.
 独立提供cef3 chromium-84.0.4147.38版本内核。可以在非源码版本的ue4.27中使用
 
 因为github的大文件限制，使用前需要解压缩Source\ThirdParty\ChromiumUILibrary文件夹下面的ChromiumUILibrary.7z
-解压缩在当前目录，就可以完整使用引擎
+解压缩在当前目录，就可以完整使用插件

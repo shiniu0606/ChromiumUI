@@ -7,7 +7,7 @@
 
 DEFINE_LOG_CATEGORY(LogCEFBrowser);
 
-static bool bCEFGPUAcceleration = true;
+static bool bCEFGPUAcceleration = false;
 static FAutoConsoleVariableRef CVarCEFGPUAcceleration(
 	TEXT("r.CEFGPUAcceleration"),
 	bCEFGPUAcceleration,

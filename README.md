@@ -10,6 +10,4 @@ cd Source\ThirdParty\ChromiumUILibrary
 
 unzip ChromiumUILibrary.7z in this folder
 
-Binaries
-cef_binary_84.1.6+gc551bc2+chromium-84.0.4147.38_windows32
-cef_binary_84.1.6+gc551bc2+chromium-84.0.4147.38_windows64
+copy plugin to project use

@@ -14,10 +14,10 @@ ue4.27 提供的cef3 版本过低，无法支持es6语法的html网页.
 js和ue4相互调用使用说明，该例子在插件Content目录
 
 1.绑定桥接对象
- ![Image text]https://github.com/shiniu0606/ChromiumUI/blob/main/doc/1.PNG
+![Alt text](https://github.com/shiniu0606/ChromiumUI/blob/main/doc/1.PNG?raw=true "Optional Title")
 
 2.定义蓝图函数(注意该函数在js中为小写)
- ![Image text]https://github.com/shiniu0606/ChromiumUI/blob/main/doc/2.PNG
+![Alt text](https://github.com/shiniu0606/ChromiumUI/blob/main/doc/2.PNG?raw=true "Optional Title")
 
 3.js调用ue4l蓝图函数
- ![Image text]https://github.com/shiniu0606/ChromiumUI/blob/main/doc/3.PNG
+![Alt text](https://github.com/shiniu0606/ChromiumUI/blob/main/doc/3.PNG?raw=true "Optional Title")

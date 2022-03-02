@@ -66,6 +66,7 @@ void SWebBrowser::Construct(const FArguments& InArgs, const TSharedPtr<IWebBrows
 	TransparencyDelay = FMath::Max(0.0f, InArgs._TransparencyDelay);
 	TransparencyThreadshold = FMath::Clamp(InArgs._TransparencyThreshold, 0.0f, 1.0f);
 
+	
 	if (InBrowserWindow)
 	{
 		BrowserWindow = InBrowserWindow;
@@ -97,110 +98,32 @@ void SWebBrowser::Construct(const FArguments& InArgs, const TSharedPtr<IWebBrows
 
 	ChildSlot
 	[
-		SNew(SVerticalBox)
-		+SVerticalBox::Slot()
-		.AutoHeight()
-		[
-			SNew(SHorizontalBox)
-			.Visibility((InArgs._ShowControls || InArgs._ShowAddressBar) ? EVisibility::Visible : EVisibility::Collapsed)
-			+ SHorizontalBox::Slot()
-			.Padding(0, 5)
-			.AutoWidth()
-			[
-				SNew(SHorizontalBox)
-				.Visibility(InArgs._ShowControls ? EVisibility::Visible : EVisibility::Collapsed)
-				+SHorizontalBox::Slot()
-				.AutoWidth()
-				[
-					SNew(SButton)
-					.Text(LOCTEXT("Back","Back"))
-					.IsEnabled(this, &SWebBrowser::CanGoBack)
-					.OnClicked(this, &SWebBrowser::OnBackClicked)
-				]
-				+SHorizontalBox::Slot()
-				.AutoWidth()
-				[
-					SNew(SButton)
-					.Text(LOCTEXT("Forward", "Forward"))
-					.IsEnabled(this, &SWebBrowser::CanGoForward)
-					.OnClicked(this, &SWebBrowser::OnForwardClicked)
-				]
-				+SHorizontalBox::Slot()
-				.AutoWidth()
-				[
-					SNew(SButton)
-					.Text(this, &SWebBrowser::GetReloadButtonText)
-					.OnClicked(this, &SWebBrowser::OnReloadClicked)
-				]
-				+SHorizontalBox::Slot()
-				.FillWidth(1.0f)
-				.VAlign(VAlign_Center)
-				.HAlign(HAlign_Right)
-				.Padding(5)
-				[
-					SNew(STextBlock)
-					.Visibility(InArgs._ShowAddressBar ? EVisibility::Collapsed : EVisibility::Visible )
-					.Text(this, &SWebBrowser::GetTitleText)
-					.Justification(ETextJustify::Right)
-				]
-			]
-			+SHorizontalBox::Slot()
-			.VAlign(VAlign_Center)
-			.HAlign(HAlign_Fill)
-			.Padding(5.f, 5.f)
-			[
-				// @todo: A proper addressbar widget should go here, for now we use a simple textbox.
-				SAssignNew(InputText, SEditableTextBox)
-				.Visibility(InArgs._ShowAddressBar ? EVisibility::Visible : EVisibility::Collapsed)
-				.OnTextCommitted(this, &SWebBrowser::OnUrlTextCommitted)
-				.Text(this, &SWebBrowser::GetAddressBarUrlText)
-				.SelectAllTextWhenFocused(true)
-				.ClearKeyboardFocusOnCommit(true)
-				.RevertTextOnEscape(true)
-			]
-		]
-		+SVerticalBox::Slot()
-		[
-			SNew(SOverlay)
-			+ SOverlay::Slot()
-			[
-				SAssignNew(BrowserView, SWebBrowserView, BrowserWindow)
-				.ParentWindow(InArgs._ParentWindow)
-				.InitialURL(InArgs._InitialURL)
-				.ContentsToLoad(InArgs._ContentsToLoad)
-				.ShowErrorMessage(InArgs._ShowErrorMessage)
-				.SupportsTransparency(InArgs._SupportsTransparency)
-				.SupportsThumbMouseButtonNavigation(InArgs._SupportsThumbMouseButtonNavigation)
-				.BackgroundColor(InArgs._BackgroundColor)
-				.PopupMenuMethod(InArgs._PopupMenuMethod)
-				.ViewportSize(InArgs._ViewportSize)
-				.OnLoadCompleted(OnLoadCompleted)
-				.OnLoadError(OnLoadError)
-				.OnLoadStarted(OnLoadStarted)
-				.OnTitleChanged(OnTitleChanged)
-				.OnUrlChanged(OnUrlChanged)
-				.OnBeforePopup(OnBeforePopup)
-				.OnCreateWindow(this, &SWebBrowser::HandleCreateWindow)
-				.OnCloseWindow(this, &SWebBrowser::HandleCloseWindow)
-				.OnBeforeNavigation(OnBeforeNavigation)
-				.OnLoadUrl(OnLoadUrl)
-				.OnShowDialog(OnShowDialog)
-				.OnDismissAllDialogs(OnDismissAllDialogs)
-				.Visibility(this, &SWebBrowser::GetViewportVisibility)
-				.OnSuppressContextMenu(InArgs._OnSuppressContextMenu)
-				.OnDragWindow(InArgs._OnDragWindow)
-				.BrowserFrameRate(InArgs._BrowserFrameRate)
-			]
-			+ SOverlay::Slot()
-			.HAlign(HAlign_Center)
-			.VAlign(VAlign_Center)
-			[
-				SNew(SCircularThrobber)
-				.Radius(10.0f)
-				.ToolTipText(LOCTEXT("LoadingThrobberToolTip", "Loading page..."))
-				.Visibility(this, &SWebBrowser::GetLoadingThrobberVisibility)
-			]
-		]
+		SAssignNew(BrowserView, SWebBrowserView, BrowserWindow)
+		.ParentWindow(InArgs._ParentWindow)
+		.InitialURL(InArgs._InitialURL)
+		.ContentsToLoad(InArgs._ContentsToLoad)
+		.ShowErrorMessage(InArgs._ShowErrorMessage)
+		.SupportsTransparency(InArgs._SupportsTransparency)
+		.SupportsThumbMouseButtonNavigation(InArgs._SupportsThumbMouseButtonNavigation)
+		.BackgroundColor(InArgs._BackgroundColor)
+		.PopupMenuMethod(InArgs._PopupMenuMethod)
+		.ViewportSize(InArgs._ViewportSize)
+		.OnLoadCompleted(OnLoadCompleted)
+		.OnLoadError(OnLoadError)
+		.OnLoadStarted(OnLoadStarted)
+		.OnTitleChanged(OnTitleChanged)
+		.OnUrlChanged(OnUrlChanged)
+		.OnBeforePopup(OnBeforePopup)
+		.OnCreateWindow(this, &SWebBrowser::HandleCreateWindow)
+		.OnCloseWindow(this, &SWebBrowser::HandleCloseWindow)
+		.OnBeforeNavigation(OnBeforeNavigation)
+		.OnLoadUrl(OnLoadUrl)
+		.OnShowDialog(OnShowDialog)
+		.OnDismissAllDialogs(OnDismissAllDialogs)
+		.Visibility(this, &SWebBrowser::GetViewportVisibility)
+		.OnSuppressContextMenu(InArgs._OnSuppressContextMenu)
+		.OnDragWindow(InArgs._OnDragWindow)
+		.BrowserFrameRate(InArgs._BrowserFrameRate)
 	];
 }
 
@@ -549,7 +472,7 @@ EVisibility SWebBrowser::GetViewportVisibility() const
 
 EVisibility SWebBrowser::GetLoadingThrobberVisibility() const
 {
-	if (bShowInitialThrobber && !BrowserView->IsInitialized())
+	if (bShowInitialThrobber && !BrowserWindow->IsInitialized())
 	{
 		return EVisibility::Visible;
 	}

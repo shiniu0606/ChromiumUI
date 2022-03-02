@@ -35,7 +35,7 @@ public:
 		, _SupportsTransparency(false)
 		, _SupportsThumbMouseButtonNavigation(true)
 		, _ShowInitialThrobber(true)
-		, _BackgroundColor(255,255,255,255)
+		, _BackgroundColor(255, 255, 255, 255)
 		, _BrowserFrameRate(24)
 		, _PopupMenuMethod(TOptional<EPopupMethod>())
 		, _ViewportSize(FVector2D::ZeroVector)

@@ -278,6 +278,42 @@ void UWebBrowser::ResetMousePosition()
 	}
 }
 
+int32 UWebBrowser::GetTextureWidth() const
+{
+#if !UE_SERVER
+	if (WebBrowserWidget.IsValid())
+		return WebBrowserWidget->GetTextureWidth();
+#endif
+	return 0;
+}
+
+int32 UWebBrowser::GetTextureHeight() const
+{
+#if !UE_SERVER
+	if (WebBrowserWidget.IsValid())
+		return WebBrowserWidget->GetTextureHeight();
+#endif
+	return 0;
+}
+
+FColor UWebBrowser::ReadTexturePixel(int32 X, int32 Y)
+{
+#if !UE_SERVER
+	if (WebBrowserWidget.IsValid())
+		return WebBrowserWidget->ReadTexturePixel(X, Y);
+#endif
+	return FColor::Transparent;
+}
+
+TArray<FColor> UWebBrowser::ReadTexturePixels(int32 X, int32 Y, int32 Width, int32 Height)
+{
+#if !UE_SERVER
+	if (WebBrowserWidget.IsValid())
+		return WebBrowserWidget->ReadTexturePixels(X, Y, Width, Height);
+#endif
+	return TArray<FColor>();
+}
+
 bool UWebBrowser::IsMouseTransparencyEnabled() const
 {
 #if !UE_SERVER

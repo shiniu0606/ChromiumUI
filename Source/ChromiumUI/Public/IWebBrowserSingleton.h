@@ -61,7 +61,7 @@ struct CHROMIUMUI_API FCreateBrowserWindowSettings
 		, bThumbMouseButtonNavigation(false)
 		, ContentsToLoad()
 		, bShowErrorMessage(true)
-		, BackgroundColor(FColor(255, 255, 255, 255))
+		, BackgroundColor(FColor(0, 0, 0, 0))
 		, BrowserFrameRate(24)
 		, Context()
 		, AltRetryDomains()

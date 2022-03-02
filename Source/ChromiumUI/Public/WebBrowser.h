@@ -83,6 +83,19 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Web Browser|Helpers")
 	void ResetMousePosition();
 
+	// Get the width of the browser texture.
+	UFUNCTION(BlueprintPure, Category = "Web Browser|Textures")
+		int32 GetTextureWidth() const;
+	// Get the height of the browser texture.
+	UFUNCTION(BlueprintPure, Category = "Web Browser|Textures")
+		int32 GetTextureHeight() const;
+	// Read a pixel from the browser texture.
+	UFUNCTION(BlueprintCallable, Category = "Web Browser|Textures")
+		FColor ReadTexturePixel(int32 X, int32 Y);
+	// Read an area of pixels from the browser texture.
+	UFUNCTION(BlueprintCallable, Category = "Web Browser|Textures")
+		TArray<FColor> ReadTexturePixels(int32 X, int32 Y, int32 Width, int32 Height);
+
 	// Check if mouse transparency is enabled.
 	UFUNCTION(BlueprintPure, Category = "Web Browser|Transparency")
 	bool IsMouseTransparencyEnabled() const;

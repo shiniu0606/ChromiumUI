@@ -15,11 +15,11 @@ copy plugin to project use
 
 using js and ue4 to call each other, the example is in the plugin Content directory
 
-1.bind bridge object
+1.bind bridge object  
 ![Alt text](https://github.com/shiniu0606/ChromiumUI/blob/main/doc/1.PNG?raw=true "Optional Title")  
 
-2.define the blueprint function (note that the function is lowercase in js) 
+2.define the blueprint function (note that the function is lowercase in js)   
 ![Alt text](https://github.com/shiniu0606/ChromiumUI/blob/main/doc/2.PNG?raw=true "Optional Title")  
 
-3.call ue4 function
-![Alt text](https://github.com/shiniu0606/ChromiumUI/blob/main/doc/3.PNG?raw=true "Optional Title")  
+3.call ue4 function  
+![Alt text](https://github.com/shiniu0606/ChromiumUI/blob/main/doc/3.PNG?raw=true "Optional Title")    

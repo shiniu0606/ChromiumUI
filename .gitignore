@@ -73,5 +73,6 @@ Plugins/*/Intermediate/*
 # Cache files for the editor to use
 DerivedDataCache/*
 
-cef_binary_84.1.6+gc551bc2+chromium-84.0.4147.38_windows32/*
-cef_binary_84.1.6+gc551bc2+chromium-84.0.4147.38_windows64/*
+Source/ThirdParty/ChromiumUILibrary/cef_binary_84.1.6+gc551bc2+chromium-84.0.4147.38_windows32/*
+Source/ThirdParty/ChromiumUILibrary/cef_binary_84.1.6+gc551bc2+chromium-84.0.4147.38_windows64/*
+Source/ThirdParty/ChromiumUILibrary/Binaries/*

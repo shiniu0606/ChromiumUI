@@ -1,6 +1,9 @@
 # ChromiumUI
 ue4 webbrowser plugin with cef3 version chromium-84.0.4147.38
 
+# 注意事项
+使用时需要检查是否禁用WebBrowser,SteamVR和OnlineFramework插件
+
 webbrowser插件版本
 
 ue4.27 提供的cef3 版本过低，无法支持es6语法的html网页.

@@ -19,5 +19,5 @@ js和ue4相互调用使用说明，该例子在插件Content目录
 2.定义蓝图函数(注意该函数在js中为小写)  
 ![Alt text](https://github.com/shiniu0606/ChromiumUI/blob/main/doc/2.PNG?raw=true "Optional Title")  
 
-3.js调用ue4l蓝图函数  
+3.js调用ue4蓝图函数  
 ![Alt text](https://github.com/shiniu0606/ChromiumUI/blob/main/doc/3.PNG?raw=true "Optional Title")  

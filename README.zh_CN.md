@@ -4,6 +4,7 @@ ue4 webbrowser plugin with cef3 version chromium-84.0.4147.38
 # 注意事项
 使用时需要检查是否禁用WebBrowser,SteamVR和OnlineFramework插件
 
+# 插件说明
 webbrowser插件版本
 
 ue4.27 提供的cef3 版本过低，无法支持es6语法的html网页.
@@ -14,6 +15,7 @@ ue4.27 提供的cef3 版本过低，无法支持es6语法的html网页.
 因为github的大文件限制，使用前需要解压缩Source\ThirdParty\ChromiumUILibrary文件夹下面的ChromiumUILibrary.7z
 解压缩在当前目录，就可以完整使用插件
 
+# 使用介绍
 js和ue4相互调用使用说明，该例子在插件Content目录
 
 1.绑定桥接对象  

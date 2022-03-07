@@ -7,6 +7,8 @@ ue4 webbrowser plugin with cef3 version chromium-84.0.4147.38
 # Precautions
 need check disable WebBrowser,SteamVR,OnlineFramework plugin
 
+cannot modify the directory name of the ChromiumUI plugin
+
 # How to usage
 
 cd Source\ThirdParty\ChromiumUILibrary

@@ -4,6 +4,8 @@ ue4 webbrowser plugin with cef3 version chromium-84.0.4147.38
 # 注意事项
 使用时需要检查是否禁用WebBrowser,SteamVR和OnlineFramework插件
 
+插件的目录名ChromiumUI不能修改，代码中有使用该名称拼接加载资源的路径
+
 # 插件说明
 webbrowser插件版本
 

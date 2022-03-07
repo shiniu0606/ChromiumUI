@@ -245,7 +245,7 @@ FWebBrowserSingleton::FWebBrowserSingleton(const FWebBrowserInitSettings& WebBro
 
 	// Enable high-DPI support early in CEF startup. For this to work it also depends
 	//  on FPlatformApplicationMisc::SetHighDPIMode() being called already which should happen by default
-	CefEnableHighDPISupport();
+	//CefEnableHighDPISupport();
 
 	bool bVerboseLogging = FParse::Param(FCommandLine::Get(), TEXT("cefverbose")) || FParse::Param(FCommandLine::Get(), TEXT("debuglog"));
 	// CEFBrowserApp implements application-level callbacks.

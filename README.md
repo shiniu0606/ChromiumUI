@@ -4,6 +4,8 @@
 
 ue4 webbrowser plugin with cef3 version chromium-84.0.4147.38
 
+This project is a fork of the "ChromiumUI" project which integrates additional functionalities, notably for the management of web menus.
+
 # Precautions
 need check disable WebBrowser,SteamVR,OnlineFramework plugin
 

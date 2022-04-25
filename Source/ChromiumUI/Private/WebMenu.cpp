@@ -54,6 +54,7 @@ TSharedRef<SWidget> UWebMenu::RebuildWidget()
 	}
 	else
 	{
+		// Doc : https://docs.unrealengine.com/5.0/en-US/API/Runtime/WebBrowser/SWebBrowser/FArguments/
 		WebBrowserWidget = SNew(SWebBrowser)
 			.InitialURL(InitialURL)
 			.ShowControls(false)

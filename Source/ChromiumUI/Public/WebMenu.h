@@ -16,7 +16,7 @@ class CHROMIUMUI_API UWebMenu : public UWebBrowser
 	GENERATED_UCLASS_BODY()
 
 public:
-	DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnJsonReceived, const FText&, Text);
+	DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnJsonReceived, FString, Json);
 
 	/**
 	* Send an event to web browser with Json
@@ -46,14 +46,15 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Web Browser")
 		void ReceiveJson(FString json) const;
 
+
 	/** Called when json received from client. */
 	UPROPERTY(BlueprintAssignable, Category = "Web Browser|Event")
-		FOnJsonReceived OnJsonReceived;
+		FOnJsonReceived OnJsonReceivedd;
 
 	/** Set zoom of page */
 	UPROPERTY(BlueprintReadWrite, Category = "Web Browser|Appearance")
 		float Zoom;
 
 protected:
-	virtual TSharedRef<SWidget> RebuildWidget() override;
+	virtual TSharedRef<SWidget> RebuildWidget() final;
 };

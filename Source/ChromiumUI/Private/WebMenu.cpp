@@ -1,6 +1,7 @@
 ﻿// Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "WebMenu.h"
+#include "Engine/Engine.h"
 
 #define LOCTEXT_NAMESPACE "WebBrowser"
 
@@ -17,7 +18,7 @@ void UWebMenu::SendJson(const FString& Json)
 {
 	if (WebBrowserWidget.IsValid())
 	{
-		const FString js = "if(window && window.Unreal && window.Unreal.receive) window.Unreal.receive(`" + Json + "`);";
+		const FString js = "if(window && window.receive) window.receive(`" + Json + "`);";
 		UWebMenu::ExecuteJavascript(js);
 	}
 }
@@ -34,10 +35,28 @@ bool UWebMenu::IsValid() const
 
 void UWebMenu::ReceiveJson(FString data) const
 {
-	if (WebBrowserWidget.IsValid())
-	{
-		OnJsonReceived.Broadcast(FText::FromString(data));
+
+	GEngine->AddOnScreenDebugMessage(-1, 12.f, FColor::Yellow, 
+		FString::Printf(TEXT("Received JSON: %s"), *data));
+
+	if (!WebBrowserWidget.IsValid()) {
+		GEngine->AddOnScreenDebugMessage(-1, 12.f, FColor::Yellow,
+			FString::Printf(TEXT("Web Browser is not valid.")));
+		return;
 	}
+
+	OnJsonReceivedd.Broadcast(data);
+
+	if (!OnJsonReceivedd.IsBound()) {
+		GEngine->AddOnScreenDebugMessage(-1, 12.f, FColor::Yellow,
+			FString::Printf(TEXT("Web Browser binding is not set.")));
+		return;
+	}
+
+	GEngine->AddOnScreenDebugMessage(-1, 12.f, FColor::Yellow,
+		FString::Printf(TEXT("Web Browser and binding is valid.")));
+
+	
 }
 
 TSharedRef<SWidget> UWebMenu::RebuildWidget()
@@ -54,6 +73,7 @@ TSharedRef<SWidget> UWebMenu::RebuildWidget()
 	}
 	else
 	{
+
 		// Doc : https://docs.unrealengine.com/5.0/en-US/API/Runtime/WebBrowser/SWebBrowser/FArguments/
 		WebBrowserWidget = SNew(SWebBrowser)
 			.InitialURL(InitialURL)
@@ -67,7 +87,7 @@ TSharedRef<SWidget> UWebMenu::RebuildWidget()
 			.OnBeforePopup(BIND_UOBJECT_DELEGATE(FOnBeforePopupDelegate, HandleOnBeforePopup));
 
 #if WITH_CEF3
-		WebBrowserWidget->BindUObject("interface", this);
+		WebBrowserWidget->BindUObject("interface", this, true);
 #endif
 
 		return WebBrowserWidget.ToSharedRef();

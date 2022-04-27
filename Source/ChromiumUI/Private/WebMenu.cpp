@@ -36,27 +36,19 @@ bool UWebMenu::IsValid() const
 void UWebMenu::ReceiveJson(FString data) const
 {
 
-	GEngine->AddOnScreenDebugMessage(-1, 12.f, FColor::Yellow, 
-		FString::Printf(TEXT("Received JSON: %s"), *data));
-
 	if (!WebBrowserWidget.IsValid()) {
-		GEngine->AddOnScreenDebugMessage(-1, 12.f, FColor::Yellow,
+		GEngine->AddOnScreenDebugMessage(-1, 12.f, FColor::Red,
 			FString::Printf(TEXT("Web Browser is not valid.")));
 		return;
 	}
 
-	OnJsonReceivedd.Broadcast(data);
-
 	if (!OnJsonReceivedd.IsBound()) {
-		GEngine->AddOnScreenDebugMessage(-1, 12.f, FColor::Yellow,
+		GEngine->AddOnScreenDebugMessage(-1, 12.f, FColor::Red,
 			FString::Printf(TEXT("Web Browser binding is not set.")));
 		return;
 	}
 
-	GEngine->AddOnScreenDebugMessage(-1, 12.f, FColor::Yellow,
-		FString::Printf(TEXT("Web Browser and binding is valid.")));
-
-	
+	OnJsonReceivedd.Broadcast(data);
 }
 
 TSharedRef<SWidget> UWebMenu::RebuildWidget()

@@ -63,7 +63,6 @@ public class ChromiumUI : ModuleRules
 
 
 		if (Target.Platform == UnrealTargetPlatform.Win64
-		|| Target.Platform == UnrealTargetPlatform.Win32
 		|| Target.Platform == UnrealTargetPlatform.Mac
 		|| Target.Platform == UnrealTargetPlatform.Linux)
 		{
@@ -92,15 +91,10 @@ public class ChromiumUI : ModuleRules
 			}
 		}
 
-		if (Target.Platform == UnrealTargetPlatform.PS4 &&
-			Target.bCompileAgainstEngine)
+		if (Target.bCompileAgainstEngine)
 		{
 			PrivateDependencyModuleNames.Add("Engine");
 		}
 
-		if (Target.Platform == UnrealTargetPlatform.Lumin)
-		{
-			PrecompileForTargets = ModuleRules.PrecompileTargetsType.None;
-		}
 	}
 }

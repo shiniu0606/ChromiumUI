@@ -4,7 +4,7 @@
 #if WITH_CEF3
 #include "UObject/EnumProperty.h"
 #include "UObject/TextProperty.h"
-#include "WebJSFunction.h"
+#include "WebJSFunction2.h"
 
 /* Internal helpers
  *****************************************************************************/
@@ -163,7 +163,7 @@ namespace {
 		CefRefPtr<CefDictionaryValue> Dictionary = Container->GetDictionary(Key);
 		FStructProperty* StructProperty = CastField<FStructProperty>(Property);
 
-		if ( !StructProperty || StructProperty->Struct != FWebJSFunction::StaticStruct())
+		if ( !StructProperty || StructProperty->Struct != FWebJSFunction2::StaticStruct())
 		{
 			return false;
 		}
@@ -174,7 +174,7 @@ namespace {
 			// Invalid GUID
 			return false;
 		}
-		FWebJSFunction CallbackObject(Scripting, CallbackID);
+		FWebJSFunction2 CallbackObject(Scripting, CallbackID);
 		return SetPropertyValue(StructProperty, Outer, Data, ArrayIndex, CallbackObject);
 	}
 
